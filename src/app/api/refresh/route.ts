@@ -1,3 +1,4 @@
+import { get } from "@vercel/edge-config";
 import { /*NextRequest,*/ NextResponse } from "next/server";
 
 export type RefreshResponse = {
@@ -6,5 +7,7 @@ export type RefreshResponse = {
 }
 
 export async function GET(/*req: NextRequest*/): Promise<NextResponse<RefreshResponse>> {
-    return NextResponse.json({status: 'ok'});
+    const message = await get('greeting') as string;
+
+    return NextResponse.json({status: 'ok', message});
 }

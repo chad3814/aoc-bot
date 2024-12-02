@@ -1,0 +1,20 @@
+version: "3"
+services:
+  aocCron:
+    container_name: aoc-cron
+    image: aoc-cron
+    build: .
+    secrets:
+      - edgeConfigId
+      - leaderboardToken
+      - AOC_LEADERBOARD
+      - AOC_SESSION
+secrets:
+  edgeConfigId:
+    file: .secrets/edgeConfigId
+  leaderboardToken:
+    file: .secrets/leaderboard.token
+  AOC_LEADERBOARD:
+    file: .secrets/AOC_LEADERBOARD
+  AOC_SESSION:
+    file: .secrets/AOC_SESSION

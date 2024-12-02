@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cron": "tsc cron/cron.ts && docker build cron -t aoc-cron && docker compose -f cron/docker-compose.yaml up -d"
   },
   "dependencies": {
     "@slack/bolt": "^4.1.1",
+    "@vercel/edge-config": "^1.4.0",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106"
