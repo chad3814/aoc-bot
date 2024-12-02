@@ -1,7 +1,7 @@
 import { get } from "@vercel/edge-config";
 import Leaderboard from "./leaderboard";
 import styles from "./page.module.css";
-import Link from "next/link";
+/*import Link from "next/link";*/
 import { AocLeaderboard } from "@/aoc";
 
 export default async function Home() {
@@ -13,7 +13,7 @@ export default async function Home() {
         <Leaderboard leaderboard={leaderboard}/>
       </main>
       <footer className={styles.footer}>
-        <Link href="/api/refresh">manually refresh</Link>
+        {/* <Link href="/api/refresh">manually refresh</Link> */}
       </footer>
     </div>
   );
