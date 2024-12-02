@@ -1,34 +1,5 @@
 import { readFile } from 'fs/promises';
-
-type StarData = {
-    star_index: number;
-    get_star_ts: number;
-};
-
-type CompletionDayLevel = {
-    [day: string]: {
-        "1": StarData;
-        "2"?: StarData;
-    }
-};
-
-type AocMember = {
-    name: string;
-    completion_day_level: CompletionDayLevel;
-    stars: number;
-    global_score: number;
-    id: number;
-    last_star_ts: number;
-    local_score: number;
-};
-
-type AocLeaderboard = {
-    owner_id: number;
-    event: string;
-    memebers: {
-        [memberId: string]: AocMember;
-    };
-};
+import type { AocLeaderboard } from '../src/aoc';
 
 async function fetchLeaderBoard(): Promise<AocLeaderboard | null> {
     const leaderboardId = await readFile('/run/secrets/AOC_LEADERBOARD', 'utf-8');
