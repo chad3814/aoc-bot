@@ -80,3 +80,19 @@ async function cycle() {
 }
 
 cycle();
+
+async function post() {
+    const next = new Date();
+    const hour = next.getUTCHours();
+    next.setUTCHours((Math.floor(hour / 2) + 1) * 2);
+    next.setUTCMinutes(0);
+    next.setUTCSeconds(0);
+
+    const res = await fetch('https://aoc.chadshost.xyz/api/refresh');
+    if (!res.ok) {
+        console.error(`faield to refresh ${res.status} - ${res.statusText}`);
+    }
+    setTimeout(post, next.getTime() - Date.now());
+}
+
+post();
