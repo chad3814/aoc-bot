@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cron": "tsc cron/cron.ts && docker build cron -t aoc-cron && docker compose -f cron/docker-compose.yaml up -d"
+    "cron": "tsc cron/cron.ts && docker build cron -t aoc-cron && docker compose -f cron/docker-compose.yaml up -d",
+    "lb": "tsx leaderboard-cli/index",
+    "lb-deere": "tsx leaderboard-cli/index 2350496",
+    "lb-spqr": "tsx leaderboard-cli/index 3867684"
   },
   "dependencies": {
     "@slack/bolt": "^4.1.1",
@@ -22,6 +25,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }
